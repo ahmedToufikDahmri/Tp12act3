@@ -16,6 +16,10 @@ import dz.ibnrochd.master14.dao.RendezVousRepository;
 import dz.ibnrochd.master14.model.Consultation;
 import dz.ibnrochd.master14.model.LigneConsultation;
 import dz.ibnrochd.master14.model.Patient;
+import dz.ibnrochd.master14.business.PatientService;
+import dz.ibnrochd.master14.business.IPatientService;
+
+
 
 @SpringBootApplication
 public class Sb002Application implements CommandLineRunner {
@@ -87,12 +91,14 @@ public class Sb002Application implements CommandLineRunner {
 		
 		
 		
-		
 
 				
 		
 
 		
 	}
+
+
+
 
 }
