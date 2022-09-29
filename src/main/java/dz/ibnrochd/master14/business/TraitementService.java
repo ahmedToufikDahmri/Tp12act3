@@ -1,34 +1,25 @@
 package dz.ibnrochd.master14.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import dz.ibnrochd.master14.dao.TraitementRepository;
 import dz.ibnrochd.master14.model.Traitement;
 
-
+@Service
 public class TraitementService implements ITraitementService {
 	
 	@Autowired  
 	TraitementRepository TraitementRepository;  
 	
 	
-	public void afficherTraitementAvecId(int id)   
+	public List<Traitement> afficherTousTraitements()   
 	{  
-	TraitementRepository.findById(id);  
+	return TraitementRepository.findAll();  
 	}  
 	
-	public void enregistrerTraitement(Traitement traitement)   
-	{  
-	TraitementRepository.save(traitement);  
-	}  
 	
-	public void supprimerPatientAvecId(int id)   
-	{  
-	TraitementRepository.deleteById(id);  
-	}  
-	  
-	public void miseAJourPatient(Traitement traitement, int id)   
-	{  
-	TraitementRepository.save(traitement);  
-	}  
 
 }

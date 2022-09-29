@@ -1,0 +1,31 @@
+h1 {
+    color:#0000FF;
+}
+
+h2 {
+    color:#FF0000;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 5px;
+}
+
+.button {
+  border: none;
+  color:white;
+  padding: 3px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn1 {background-color: rgb(255, 0, 0);} 
+.btn2 {background-color: rgb(0, 128, 255);} 
+.btn3 {background-color: rgb(0, 255, 64);} 
+

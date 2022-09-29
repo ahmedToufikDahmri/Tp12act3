@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(schema = "cabinet", name = "patient")
 public class Patient implements Serializable {
@@ -36,6 +38,7 @@ public class Patient implements Serializable {
 
     @Column(name = "date_naissance", nullable = false)
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
 
     @Column(name = "numero_telephone", nullable = false, length = 255)

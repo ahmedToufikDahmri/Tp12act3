@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import dz.ibnrochd.master14.dao.PatientRepository;
 import dz.ibnrochd.master14.dao.ConsultationRepository;
@@ -52,6 +53,7 @@ public class Sb002Application implements CommandLineRunner {
 
 		 List<Patient> p = patientRepository.findAll();
 		 System.out.println(p);
+		 
 		 
 		// TODO : rechercher les patients ayant le nom "Yahi" puis leurs prénoms
 

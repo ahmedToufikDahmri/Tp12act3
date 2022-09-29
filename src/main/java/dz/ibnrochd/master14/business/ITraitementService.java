@@ -1,8 +1,12 @@
 package dz.ibnrochd.master14.business;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import dz.ibnrochd.master14.model.Traitement;
+
 public interface ITraitementService {
+	
+	public List<Traitement> afficherTousTraitements();   
+
 
 }

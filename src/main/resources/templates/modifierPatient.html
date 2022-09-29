@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Modifier le Patient:</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>   
+          <link rel="stylesheet" type="text/css" th:href="@{/AdminLTE-3.2.0/dist/css/adminlte.min.css}"/>
+       <script type="text/javascript" th:src="@{/AdminLTE-3.2.0/dist/js/adminlte.js}"></script>
+   </head>
+   <body>
+   
+   
+         <!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <!-- Left navbar links -->
+        <h1>Modifier le Patient </h1>
+      <h2 th:utext="${message}">..!..</h2>  
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <a th:href="@{/index}" class="nav-link">Accueil</a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <a th:href="@{/patientsList}" class="nav-link">Patients List</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a th:href="@{/traitementsList}" class="nav-link">Traitements List</a>
+      </a>
+    </li>
+  </ul>
+</nav>
+   
+   
+   
+   
+   
+  
+      
+      <!--  
+         In Thymeleaf the equivalent of
+         JSP's ${pageContext.request.contextPath}/edit.html
+         would be @{/edit.html}         
+         -->
+         
+      <form method="post" th:action="@{save}"  th:object="${patient}">
+         ID
+         <input type="text" th:field="*{id}" disabled/>  
+         <br/>   <br/>
+         Nom:
+         <input type="text" th:field="*{nom}" />    
+         <br/> <br/>
+         Prenom:
+         <input type="text" th:field="*{prenom}" />     
+         <br/> <br/>
+         Sexe:
+         <input type="text" th:field="*{sexe}"/>   
+          <br/> <br/>
+		 Date de Naissance
+         <input type="date" th:field="*{dateNaissance}" />     
+         <br/> <br/>
+		 Numero Telephone
+         <input type="text"  th:field="*{numeroTelephone}" /> 
+         <br/> <br/>
+         Adresse
+         <input type="text" th:field="*{adresse}"/>     
+         <br/> <br/>
+
+         <input  class="button btn2" type="submit" value="Modifier" />
+      </form>
+      
+      <br/>
+      
+      <!-- Check if errorMessage is not null and not empty -->
+      
+      <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+         ...
+      </div>
+      
+   </body>
+</html>
