@@ -86,8 +86,14 @@ public class MyController  {
 	     * formulaire pour ajouter des Patients
 	     */
 		
-		@GetMapping ( "/ajouterPatient" )
+		@GetMapping ( "/patientsList/ajouterPatient" )
 		public String ajouterPatient(Model model) {
+			model.addAttribute("patient",new Patient(0, "votre nom", "votre prenom", "H", null, "000 00 00 00", "votre adresse"));
+			return "ajouterPatient";
+		}
+		
+		@GetMapping ( "/ajouterPatient" )
+		public String ajouterPatient2(Model model) {
 			model.addAttribute("patient",new Patient(0, "votre nom", "votre prenom", "H", null, "000 00 00 00", "votre adresse"));
 			return "ajouterPatient";
 		}
@@ -96,8 +102,14 @@ public class MyController  {
 	    /**
 	     * cree un Patient
 	     */
-		@PostMapping (path="/save")
+		@PostMapping (path="/ajouterPatient/save")
 		public String save(Model model, Patient patient) {
+			
+			pr.enregistrerPatient(patient);
+			return "redirect:/patientsList";
+		}
+		@PostMapping (path="/save")
+		public String save2(Model model, Patient patient) {
 			
 			pr.enregistrerPatient(patient);
 			return "redirect:/patientsList";
@@ -106,7 +118,7 @@ public class MyController  {
 	    /**
 	     * modifier un Patient
 	     */
-		@GetMapping ( "/update" )
+		@GetMapping ( "/patientsList/update" )
 		public String update(Model model, int id) {
 			Patient patient= pr.afficherPatientAvecId(id);
 			model.addAttribute("patient", patient);
@@ -114,13 +126,27 @@ public class MyController  {
 			return "modifierPatient";
 		}
 			
+		@GetMapping ( "/update" )
+		public String update2(Model model, int id) {
+			Patient patient= pr.afficherPatientAvecId(id);
+			model.addAttribute("patient", patient);
+
+			return "modifierPatient";
+		}
 		
 		
 	    /**
 	     * supprimer un Patient
 	     */
-		@GetMapping("/delete")
+		@GetMapping("/patientsList/delete")
 		public String delete (int id) {
+			pr.supprimerPatientAvecId(id);
+			return "redirect:/patientsList";
+			
+		}
+		
+		@GetMapping("/delete")
+		public String delete2 (int id) {
 			pr.supprimerPatientAvecId(id);
 			return "redirect:/patientsList";
 			
